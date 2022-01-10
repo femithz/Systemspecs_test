@@ -89,4 +89,8 @@ export class IndexComponent implements OnInit {
   viewHistory() {
     this.router.navigate(['/history']);
   }
+  // History
+  history() {
+    this.router.navigate(['history'])
+  }
 }

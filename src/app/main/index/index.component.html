@@ -26,9 +26,14 @@
                     <input formControlName="v2" type="number" placeholder="Enter V2 Value" />
                 </div>
             </form>
-            <button class="but3" [disabled]="!kangarooForm.valid" (click)="submit()">
-                Find Out Same Location
-            </button>
+            <div class="buttons">
+                <button class="but3" [disabled]="!kangarooForm.valid" (click)="submit()">
+                    Find Out Same Location
+                </button>
+                <button class="but4 ml-2"  (click)="history()">
+                    Visit History
+                </button>
+            </div>
         </div>
 
     </div>
