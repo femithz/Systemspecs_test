@@ -1,0 +1,57 @@
+<!-- Navbar start -->
+<app-navbar></app-navbar>
+<!-- Navbar ends -->
+<div class="container-fluid content1" style="background-image: url('assets/img/remita_bg.jpg'); background-position: center; background-size: cover;"> 
+    <div class="row">
+        <div class="col-lg-5">
+            <h3 class="headings">
+                To figure out a way to get both kangaroos at the same location at
+                the same time as part of the show.
+            </h3>
+            <form [formGroup]="kangarooForm" class="">
+                <div class="user">
+                    <label for="">First Kangaroo start location</label>
+                    <input formControlName="x1" type="number" placeholder="Enter X1 Value " />
+                </div>
+                <div class="user">
+                    <label for="">First Kangaroo  jump rate </label>
+                    <input formControlName="v1" type="number" placeholder="Enter V1 Vaule" />
+                </div>
+                <div class="user">
+                    <label for="">Second Kangaroo start location</label>
+                    <input formControlName="x2" type="number" placeholder="Enter X2 Value" />
+                </div>
+                <div class="user">
+                    <label for="">Second Kangaroo jump rate </label>
+                    <input formControlName="v2" type="number" placeholder="Enter V2 Value" />
+                </div>
+            </form>
+            <button class="but3" [disabled]="!kangarooForm.valid" (click)="submit()">
+                Find Out Same Location
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<!-- Footer Overlay start -->
+<div class="container-fluid cookie" id="cooki">
+   <div class="row">
+       <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+           <p>
+             To see how this site code is been structured,
+             <span class="footer-color">
+                 <strong>
+                    please review the source codes by
+                    clicking on the button.
+                </strong>
+            </span>
+          </p>
+       </div>
+           <button (click)="navigateToSource()" class="col-lg-3 col-md-4 col-sm-4 col-xs-5">Get Source Code</button>      
+   </div> 
+</div>
+<!-- Footer Overlay ends -->
+
+
+

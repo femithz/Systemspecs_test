@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    overflow-x: hidden;
+    font-family: 'Inter';
+    scrollbar-width: thin;
+    scrollbar-color:rgba(37, 63, 101, 0.3) transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 7px;
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: rgba(37, 63, 101, 0.3);
+    border-radius: 1ex;
+}
