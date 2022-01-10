@@ -1,0 +1,41 @@
+.yes {
+    align-items: center;
+    padding: 10px;
+    width: 71px;
+    height: 24px;
+    background: rgba(21, 193, 93, 0.15);
+    border-radius: 14px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #119448;
+}
+.text-right{
+    float: right !important;
+}
+.no{
+    align-items: center;
+    padding: 10px;
+    width: 71px;
+    height: 24px;
+    background: rgba(189, 30, 30, 0.15);
+    border-radius: 14px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #941616;
+}
+.headings{
+    color: #fff;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.note{
+    color: #941616;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    margin-top: 20px;
+}

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-index',
@@ -11,7 +13,10 @@ export class IndexComponent implements OnInit {
   kangarooForm: FormGroup;
   result: any;
 
-  constructor( private fb: FormBuilder) { 
+  constructor( 
+    private fb: FormBuilder,
+    private toastr: ToastrService,
+    private router: Router) { 
     this.kangarooForm = this.fb.group({
       x1: ['', Validators.required],
       v1: ['', Validators.required],
@@ -41,9 +46,8 @@ export class IndexComponent implements OnInit {
         // Method to push the test parameters and the result to an array
         test_history.push(payload);
         localStorage.setItem("test_history", JSON.stringify(test_history));
-        console.log('This is the payload', payload);
+        this.toastr.info("The two kangaroo is not at same location", "Info");
         this.kangarooForm.reset();
-        console.log('result re no re', this.result);
       } else if((this.kangarooForm.value?.x2 - this.kangarooForm.value?.x1) % (this.kangarooForm.value?.v1 - this.kangarooForm.value?.v2) === 0) {
          this.result = 'YES'; 
          // setion to save the two start and speed rate of the kangaroo's
@@ -57,13 +61,32 @@ export class IndexComponent implements OnInit {
         // Method to push the test parameters and the result to an array
         test_history.push(payload);
         localStorage.setItem("test_history", JSON.stringify(test_history));
-        console.log('result re no re', this.result);
+        this.toastr.success("The two kangaroo is at same location", "Success");
         this.kangarooForm.reset();
-        console.log('result re yes re', this.result);
+      } else {
+        // If any of the test parameters didn't pass the above checks or conditions then --
+        this.result = 'NO';
+        // setion to save the two start and speed rate of the kangaroo's
+        let payload = {
+          x1: this.kangarooForm.value?.x1,
+          v1: this.kangarooForm.value?.v1,
+          x2: this.kangarooForm.value?.x2,
+          v2: this.kangarooForm.value?.v2,
+          result: this.result
+        }
+        // Method to push the test parameters and the result to an array
+        test_history.push(payload);
+        localStorage.setItem("test_history", JSON.stringify(test_history));
+        this.toastr.info("The two kangaroo is not at same location", "Info");
+        this.kangarooForm.reset();
       };
   }
   // Navigate to source code
   navigateToSource() {
-
+    window.location.href = "https://github.com/femithz/Systemspecs_test";
+  } 
+  // view parameters history
+  viewHistory() {
+    this.router.navigate(['/history']);
   }
 }
